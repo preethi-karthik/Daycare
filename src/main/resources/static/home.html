@@ -1,25 +1,73 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-<html>
+<html lang="en">
     <head>
-        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <title>CHELP</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <link href="Css/DCCommon.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div>Daycare web application </div>
+
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="home.html"><img src="Images/chlogog1.jpeg" alt="CHELP"></a>
+                
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="home.html">Home</a></li>                      
+                        <li><a href="BookNow.html">Book Now</a></li>                     
+                        <li><a href="Rating.html">User Rating</a></li>                 
+                        <li><a href="Contact.html">Contact</a></li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li  ><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid text-center">    
+            <div class="row content">
+                <div class="col-sm-2 sidenav">
+                    <p><a href="#">Link</a></p>
+                    <p><a href="#">Link</a></p>
+                    <p><a href="#">Link</a></p>
+                </div>
+                <div class="col-sm-8 text-left"> 
+                    <h2>C(H)ELP</h2>
+                    <p>Yelp - for Daycare . </p>
+                    <p>Forgot to book your daycare three months ago ? </p>
+                    <p>Find the Nearest Daycare for your kids , for a specific date with best user rating and avoid being yelled by your spouse . </p>
+                    <hr>
+                    <img src="Images/Funnypic_1.jpg" alt=""/>
+
+                </div>
+                <div class="col-sm-2 sidenav">
+                    <div class="well">
+                        <p><a href="https://www.brighthorizons.com"> Visit Bright Horizons</a></p>
+                    </div>
+                    <div class="well">
+                        <p><a href="http://www.newtonchildcareacademy.com"> Newton ChildCare Acadamy </a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <footer class="container-fluid text-center">
+            <p>Mobile App coming soon ...</p>
+            &copy; CHELP
+        </footer>
     </body>
 </html>
+
