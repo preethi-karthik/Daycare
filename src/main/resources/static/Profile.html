@@ -28,10 +28,10 @@ and open the template in the editor.
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li ><a href="home.html">Home</a></li>                      
-                        <li><a href="BookNow.html">Book Now</a></li>                     
-                        <li><a href="Rating.html">User Rating</a></li>                 
+                        <li  ><a href="FindDaycare.html">Find A Daycare</a></li>                     
+                        <li><a href="Rating.html">BookNow & User Rating</a></li>                 
                         <li><a href="Contact.html">Contact</a></li>
-
+<li><a href="Profile.html">Profile</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li  ><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -46,52 +46,68 @@ and open the template in the editor.
                 <div class="panel-heading">
                     <h3>Profile Information</h3>
                     <div class="panel-body">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="FirstName">First Name:</label>
-                            <input type="text" required class="form-control" id="FirstName">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="FirstName">First Name:</label>
+                                <input type="text" required class="form-control" id="FirstName">
+                            </div>
+                            <div class="form-group">
+                                <label for="MiddleName">Middle Name:</label>
+                                <input type="text" required class="form-control" id="MiddleName">
+                            </div>
+                            <div class="form-group">
+                                <label for="Address1">Address1:</label>
+                                <input type="text" required class="form-control" id="Address1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="City">City:</label>
+                                <input type="text" required class="form-control" id="City">
+                            </div>
+                            <div class="form-group">
+                                <label for="Zipcode">Zipcode:</label>
+                                <input type="text" required class="form-control" id="zipcode">
+                            </div>
+                             <div class="form-group">
+                                <label for="lstChildren">Children List :</label>
+                                <div class="list-group">
+                                    <a href="ChildProfile.html" class="list-group-item list-group-item-action">
+                                     Child A 
+                                    </a>
+                                    <a href="ChildProfile.html" class="list-group-item list-group-item-action">Child 1</a>
+                                    <a href="ChildProfile.html" class="list-group-item list-group-item-action">Child 2</a>                               
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="MiddleName">Middle Name:</label>
-                            <input type="text" required class="form-control" id="MiddleName">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="LastName">Last Name:</label>
+                                <input type="text" required class="form-control" id="LastName">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">Email:</label>
+                                <input type="text" class="form-control" id="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="address2">Address2:</label>
+                                <input type="text" class="form-control" id="address2">
+                            </div>
+                            <div class="form-group">
+                                <label for="StateList">State:</label>
+                                <select class="form-control" id="StateList">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="Address1">Address1:</label>
-                            <input type="text" required class="form-control" id="Address1">
+                        <div class="col-md-4">
+                           
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="City">City:</label>
-                            <input type="text" required class="form-control" id="City">
-                        </div>
-                        <div class="form-group">
-                            <label for="Zipcode">Zipcode:</label>
-                            <input type="text" required class="form-control" id="zipcode">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="LastName">Last Name:</label>
-                            <input type="text" required class="form-control" id="LastName">
-                        </div>
-                        <div class="form-group">
-                            <label for="Email">Email:</label>
-                            <input type="text" class="form-control" id="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="address2">Address2:</label>
-                            <input type="text" class="form-control" id="address2">
-                        </div>
-                        <div class="form-group">
-                            <label for="State">State:</label>
-                            <select class="form-control" id="sel1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
+                        <hr>
+
                     </div>
                 </div>
             </div>
