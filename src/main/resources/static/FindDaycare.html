@@ -48,13 +48,8 @@ and open the template in the editor.
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="StateList">State:</label>
-                                <select class="form-control" id="StateList">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                                <label for="State">State:</label>
+                                <input type="text" required class="form-control" id="State">
                             </div>
 
                             <div class="form-group">
@@ -63,8 +58,8 @@ and open the template in the editor.
                             </div>
                             <div class="form-group">
                                 <label for="dpStart">Start Date:</label>
-                                <div class="input-append date" id="dpStart" data-date="12-12-2018" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                    <input class="span2" size="16" type="text" value="12-12-2018" >
+                                <div class="input-append date" id="dpStartdiv" data-date="12-12-2018" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                    <input id="dpStart" class="span2" size="16" type="text" value="12-12-2018" >
                                     <span class="add-on"><i class="icon-calendar"></i></span>
                                 </div> 
                             </div>              
@@ -91,15 +86,16 @@ and open the template in the editor.
                             </div>
                             <div class="form-group">
                                 <label for="dpEndDate">End Date:</label>
-                                <div class="input-append date" id="dpEndDate" data-date="12-24-2018" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                    <input class="span2" size="16" type="text" value="12-24-2018" >
+                                <div class="input-append date" id="dpEndDatediv" data-date="12-24-2018" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                    <input  id="dpEndDate" class="span2" size="16" type="text" value="12-24-2018" >
                                     <span class="add-on"><i class="icon-calendar"></i></span> 
                                 </div>
 
                             </div> 
                             <div class="form-group">
-                                <button type="button" class="btn btn-primary">Clear Filter</button>
-                                <button type="button" class="btn btn-primary">Search</button>
+                                <button type="button" id="Clear" class="btn btn-primary">Clear Filter</button>
+                                <button type="button" id="Search" class="btn btn-primary">Search</button>
+                                <button type="button" id="book" class="btn btn-primary">Book Now</button>
                             </div>
                         </div>
 
@@ -113,12 +109,8 @@ and open the template in the editor.
                 <div class="col-md-6">
                     <h5>Daycare Centre:</h5>
                     <div class="form-group">
-                       
-                        <div class="list-group">
-                            <a href="Rating.html" class="list-group-item list-group-item-action active">
-                               Tiny Tots Acadamy
-                            </a>
-                            <a href="Rating.html" class="list-group-item list-group-item-action">Little Learners ChildCare Centre</a>
+
+                        <div class="list-group" id="daycaredisplay">
                             
                         </div>
                     </div>
@@ -129,6 +121,58 @@ and open the template in the editor.
         <footer class="container-fluid text-center">
             <p>Mobile App coming soon ...</p>
             &copy; CHELP
-        </footer>        
+        </footer>  
+
+        <script>
+            $( document ).ready(function() {
+
+            function extractParams(paramName ,params){  
+            var url ='';
+            for(var i=0 ;i<params.length;i++){
+            url= url+paramName+"="+params[i].value+"&";
+            }
+            return url;
+            }
+            
+            function returnDate(dateStr){
+                var dates = dateStr.split('/');
+                return dates[2]+'/'+dates[0]+'/'+dates[1];
+            }
+            
+            
+            $( "#Search" ).click(function() {
+            var State  = $("#State").val();
+            var city = $("#City").val();
+            var StartDate = returnDate($("#dpStart").val().replace('-','/').replace('-','/'));
+            var EndDate = returnDate($("#dpEndDate").val().replace('-','/').replace('-','/'));
+            var userrating = $("#UserRating").val();
+
+            var url = "FindDaycare?state="+State+"&City="+city+"&userRating="+userrating+"&StartDate="+StartDate+"&EndDate="+EndDate   
+            
+                $.get(url, function(listData, status){
+                 alert(data);
+                for(var i=0;i < listData.length;i++){
+                        var data = listData[i];
+                        var dayCareName = "<a href='Rating.html?id= "+data.daycareId+ " ' class='list-group-item list-group-item-action active'>"+ "Name: " + data.daycareName + "| AvailableSeats: "+ data.availableSeats 
+                        + "| CostPerDay: "  + data.costperday + "| Address: " + data.address + "| AvailableDate : "+ data.date+"</a>";
+                        $("#daycaredisplay").append(dayCareName);
+                    }   
+                
+                })
+            });
+
+
+            $( "#book" ).click(function() {
+            var State  = $("#State").val();
+            var city = $("#City").val();
+            var StartDate = $("#dpStart").val();
+            var EndDate = $("#dpEndDate").val();
+            var userrating = $("#UserRating").val();
+
+            });
+            });
+
+        </script>
+
     </body>
 </html>

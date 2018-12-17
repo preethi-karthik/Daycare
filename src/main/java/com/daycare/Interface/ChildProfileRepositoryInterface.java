@@ -5,15 +5,14 @@
  */
 package com.daycare.Interface;
 
-import com.daycare.Model.Profile;
-
-
+import com.daycare.Model.ChildProfile;
 
 /**
  *
  * @author preethi
  */
-public interface ProfileRepositoryInterface {
-    Profile getuserid(int userid);
+public interface ChildProfileRepositoryInterface {
     
+    
+    ChildProfile getchildid(int childid);
 }

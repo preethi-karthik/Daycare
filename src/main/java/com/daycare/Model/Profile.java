@@ -25,7 +25,7 @@ public class Profile {
     private String email;
     private String city;
     private String country;
-    private ArrayList<States> states;
+    private String state;
     private List<ChildProfile> Children;
 
     /**
@@ -195,6 +195,20 @@ public class Profile {
      */
     public void setChildren(List<ChildProfile> Children) {
         this.Children = Children;
+    }
+
+    /**
+     * @return the state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(String state) {
+        this.state = state;
     }
 
 }

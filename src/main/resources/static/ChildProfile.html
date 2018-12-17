@@ -29,11 +29,11 @@ and open the template in the editor.
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                       <li ><a href="home.html">Home</a></li>                      
+                        <li ><a href="home.html">Home</a></li>                      
                         <li ><a href="FindDaycare.html">Find A Daycare</a></li>                     
                         <li><a href="Rating.html">BookNow & User Rating</a></li>                 
                         <li><a href="Contact.html">Contact</a></li>
-<li><a href="Profile.html">Profile</a></li>
+                        <li><a href="Profile.html">Profile</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li  ><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -62,30 +62,34 @@ and open the template in the editor.
                                 <input type="text" required class="form-control" id="BloodGroup">
                             </div>
                             <div class="form-group">
+                                <label for="Age">Age:</label>
+                                <input type="text" required class="form-control" id="Age">
+                            </div>
+                            <div class="form-group">
                                 <label for="DateOfBirth">DateOfBirth:</label>
                                 <input type="text" required class="form-control" id="DateOfBirth">
                             </div>
                             <div class="form-group">
                                 <label for="Allergies">Allergy List :</label>
-                               <form id="demoform" action="#" method="post">
-                                <select multiple="multiple" size="10" name="duallistbox_demo1[]">
-                                    <option value="1">Peanut</option>
-                                    <option value="2">Milk</option>
-                                    <option value="3" selected="selected">Fish</option>
-                                    <option value="4">Mushroom</option>
-                                    <option value="5">Gluten</option>
-                                     <option value="6">TreeNuts</option>
-                                </select>
-                                <br>
-                                <button type="submit" class="btn btn-default btn-block">Submit Allergy List</button>
-                            </form>
-                            <script>
-                                var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
-                                $("#demoform").submit(function() {
-                                alert($('[name="duallistbox_demo1[]"]').val());
-                                return false;
-                                });
-                            </script>
+                                <form id="demoform" action="#" method="post">
+                                    <select multiple="multiple" size="10" name="duallistbox_demo1[]">
+                                        <option value="1">Peanut</option>
+                                        <option value="2">Milk</option>
+                                        <option value="3" selected="selected">Fish</option>
+                                        <option value="4">Mushroom</option>
+                                        <option value="5">Gluten</option>
+                                        <option value="6">TreeNuts</option>
+                                    </select>
+                                    <br>
+                                    <button type="submit" class="btn btn-default btn-block">Submit Allergy List</button>
+                                </form>
+                                <script>
+                                    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+                                    $("#demoform").submit(function() {
+                                    alert($('[name="duallistbox_demo1[]"]').val());
+                                    return false;
+                                    });
+                                </script>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -110,7 +114,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="col-md-4">
-                            
+
                         </div>
                         <hr>
 
@@ -123,5 +127,37 @@ and open the template in the editor.
             <p>Mobile App coming soon ...</p>
             &copy; CHELP
         </footer>
+        <script>
+            $( document ).ready(function() {
+
+            function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('?'),
+            sParameterName,
+            i;
+            for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? 1 : sParameterName[1];
+            }
+            }
+            };
+            var childid = getUrlParameter('childid');
+
+            $.get("ChildProfile?childid="+childid, function(data, status){
+            var len = data.length; 
+            $("#FirstName").val(data.childFirstName);
+            $("#LastName").val(data.childLastName);
+            $("#MiddleName").val(data.childMiddleName);
+            $("#gender").val(data.childGender); 
+            $("#Age").val(data.childAge);
+            $("#DateOfBirth").val(data.childDateOfBirth);
+            $("#BloodGroup").val(data.bloodGroup);
+
+            });                         
+            });
+
+
+        </script>
     </body>
 </html>

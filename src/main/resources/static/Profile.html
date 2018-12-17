@@ -15,6 +15,7 @@ and open the template in the editor.
         <link href="Css/DCCommon.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -31,7 +32,7 @@ and open the template in the editor.
                         <li  ><a href="FindDaycare.html">Find A Daycare</a></li>                     
                         <li><a href="Rating.html">BookNow & User Rating</a></li>                 
                         <li><a href="Contact.html">Contact</a></li>
-<li><a href="Profile.html">Profile</a></li>
+                        <li><a href="Profile.html">Profile</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li  ><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -69,14 +70,10 @@ and open the template in the editor.
                                 <label for="Zipcode">Zipcode:</label>
                                 <input type="text" required class="form-control" id="zipcode">
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="lstChildren">Children List :</label>
-                                <div class="list-group">
-                                    <a href="ChildProfile.html" class="list-group-item list-group-item-action">
-                                     Child A 
-                                    </a>
-                                    <a href="ChildProfile.html" class="list-group-item list-group-item-action">Child 1</a>
-                                    <a href="ChildProfile.html" class="list-group-item list-group-item-action">Child 2</a>                               
+                                <div class="list-group" id="lstChildren">
+                                                        
                                 </div>
                             </div>
                         </div>
@@ -104,7 +101,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="col-md-4">
-                           
+
                         </div>
                         <hr>
 
@@ -116,5 +113,52 @@ and open the template in the editor.
             <p>Mobile App coming soon ...</p>
             &copy; CHELP
         </footer>
+        <script>
+
+
+            $( document ).ready(function() {
+
+            function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('?'),
+            sParameterName,
+            i;
+            for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? 1 : sParameterName[1];
+            }
+            }
+            };
+
+            var userID = getUrlParameter('userid');
+
+            $.get("Profile?userid="+userID, function(data, status){
+            var len = data.length;    
+   
+            
+              $("#FirstName").val(data.firstName);
+               $("#MiddleName").val(data.middlename); 
+               $("#LastName").val(data.lastName);
+               $("#Address1").val(data.address1);
+               $("#address2").val(data.address2);
+               //$("#zipcode").val(data.phonenumber);
+               $("#zipcode").val(data.zipcode);
+               $("#Email").val(data.email);
+               $("#City").val(data.city);
+               //$("#a").val(data.country)
+               //$("#a").val(data.State);
+               
+               var children = data.children.length ; 
+                  
+               for(i=0;i<children;i++)
+               {
+               $("#lstChildren").append("<a href='ChildProfile.html?childid="+ data.children[i].childId +
+                  " ' class='list-group-item list-group-item-action'>"+ data.children[i].childFirstName + " " + data.children[i].childLastName + " </a>")             
+               }                               
+               });                         
+            });
+        </script>
     </body>
+
 </html>
